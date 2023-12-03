@@ -1,6 +1,9 @@
 from tkinter import *
+
+#might need to addd database here, or put it in a file and load it at the start
 window = Tk()
 window.title('SQL GUI')
+SQLCOMMAND = ""
 
 def selQuery():
     mainFrame.pack_forget()
@@ -9,12 +12,19 @@ def selQuery():
 def insQuery():
     mainFrame.pack_forget()
     insFrame.pack()
-    return
 
 def menu():
     selFrame.pack_forget()
     insFrame.pack_forget()
     mainFrame.pack()
+
+def selCommand():
+    #add implementation
+    return
+
+def insCommand():
+    #add implementation
+    return
 
 #Make the main frame
 mainFrame = Frame(window)
@@ -50,6 +60,7 @@ ORDERlabel = Label(selFrame, text = "ORDER BY").grid(row = 5)
 ORDERentry = Entry(selFrame).grid(row = 5, column = 1)
 
 backButton = Button(selFrame, text = "Back", width = 20, command = menu).grid(row = 6)
+doneButton = Button(selFrame, text = "Done", width = 20, command = selCommand).grid(row = 6, column = 1)
 
 #insFrame fields
 TABLElabel = Label(insFrame, text = "INSERT INTO").grid(row = 0)
@@ -58,6 +69,7 @@ TABLEentry = Entry(insFrame).grid(row = 0, column = 1)
 VALUESlabel = Label(insFrame, text = "VALUES").grid(row = 1)
 VALUESentry = Entry(insFrame).grid(row = 1, column = 1)
 
-backButton = Button(insFrame, text = "Back", width = 20, command = menu).grid(row = 3)
+insbackButton = Button(insFrame, text = "Back", width = 20, command = menu).grid(row = 3)
+insdoneButton = Button(insFrame, text = "Done", width = 20, command = insCommand).grid(row = 3, column = 1)
 
 window.mainloop()
