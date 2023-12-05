@@ -58,7 +58,7 @@ def selCommand():
     records = c.fetchall()
     print(records)
 
-    RESlabel = Label(selFrame, text = records).grid(row = 7)
+    RESlabel = Label(selFrame, text = records, wraplength= 500).grid(row = 7, columnspan=2)
 
 
     conn.commit()
