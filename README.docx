@@ -1,0 +1,6 @@
+Steps to download our GUI program:
+Download SQLGUI.py
+Download libraryCreate.sql as the file for all of the data
+Run with python SQLGUI.py
+
+
