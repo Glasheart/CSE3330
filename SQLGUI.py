@@ -5,6 +5,7 @@ import sqlite3
 conn = sqlite3.connect("LMS.db")
 c = conn.cursor()
 
+
 with open('libraryCreate.sql', 'r') as file:
     c.executescript(file.read())
 
@@ -57,9 +58,7 @@ def selCommand():
     c.execute(SQLCOMMAND)
     records = c.fetchall()
     print(records)
-
-    RESlabel = Label(selFrame, text = records, wraplength= 500).grid(row = 7, columnspan=2)
-
+    RESlabel.config(text = records)
 
     conn.commit()
     conn.close()
@@ -97,6 +96,10 @@ mainFrame.pack()
 #make the other frames in advance
 selFrame = Frame(window)
 insFrame = Frame(window)
+#add label to display results for later
+RESlabel = Label(selFrame, text = "", wraplength= 500)
+RESlabel.grid(row = 7, columnspan=2)
+
 
 #make the buttons for each frame
 selButton = Button(mainFrame, text = "Select Query", width = 20, command = selQuery)
